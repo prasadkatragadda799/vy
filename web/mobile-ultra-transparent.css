@@ -1,0 +1,64 @@
+/* 
+   MOBILE ENHANCEMENT - READABLE TEXT ON TRANSPARENT BACKGROUND
+*/
+
+@media (max-width: 768px) {
+
+    /* Use the new vertical mobile background */
+    body {
+        background-image: url('background-mobile.jpg') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-attachment: fixed !important;
+    }
+
+    /* Subtle text shadows for readability on transparent backgrounds */
+    .hero-title,
+    .section-heading,
+    .class-title,
+    .benefit-title,
+    .contact-title,
+    .about-intro {
+        text-shadow:
+            0 2px 6px rgba(0, 0, 0, 0.7),
+            0 4px 12px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .gradient-text {
+        text-shadow:
+            0 3px 8px rgba(0, 0, 0, 0.8),
+            0 0 30px rgba(255, 216, 155, 0.4) !important;
+    }
+
+    .hero-description,
+    .about-description,
+    .class-desc,
+    .benefit-desc,
+    .contact-text,
+    .donate-description {
+        text-shadow:
+            0 1px 4px rgba(0, 0, 0, 0.7),
+            0 2px 8px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* Ensure proper color inheritance */
+    .nav-link {
+        color: var(--text-primary) !important;
+        font-weight: 600 !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    .nav-link.active {
+        color: var(--text-dark) !important;
+        font-weight: 700 !important;
+        text-shadow: none !important;
+    }
+
+    .logo-text {
+        color: var(--white-bright) !important;
+        font-weight: 700 !important;
+        text-shadow:
+            0 2px 6px rgba(0, 0, 0, 0.8),
+            0 4px 10px rgba(0, 0, 0, 0.6) !important;
+    }
+}

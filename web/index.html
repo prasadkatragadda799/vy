@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibhuti Yoga - Transform Your Life</title>
+    <meta name="description" content="Your Dreams Can Become Reality with The power of Vibhuti Yoga">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="vibhuti-styles.css?v=25">
+    <link rel="stylesheet" href="mobile-responsive.css?v=25">
+    <link rel="stylesheet" href="mobile-ultra-transparent.css?v=25">
+    <style>
+        /* === DIVINE CHAKRA SPLASH SCREEN === */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(circle at center, #2a1a50 0%, #1a0f30 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeOut 1.0s ease 2s forwards;
+            overflow: hidden;
+        }
+
+        /* Chakra Energy Rings */
+        .chakra-rings {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .chakra-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid;
+            animation: chakraPulse 3s ease-in-out infinite;
+        }
+
+        .ring-1 {
+            width: 100%;
+            height: 100%;
+            border-color: rgba(255, 0, 102, 0.4);
+            /* Crown */
+            animation-delay: 0s;
+        }
+
+        .ring-2 {
+            width: 85%;
+            height: 85%;
+            top: 7.5%;
+            left: 7.5%;
+            border-color: rgba(138, 43, 226, 0.4);
+            /* Third Eye */
+            animation-delay: 0.4s;
+        }
+
+        .ring-3 {
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            border-color: rgba(65, 105, 225, 0.4);
+            /* Throat  */
+            animation-delay: 0.8s;
+        }
+
+        .ring-4 {
+            width: 55%;
+            height: 55%;
+            top: 22.5%;
+            left: 22.5%;
+            border-color: rgba(34, 139, 34, 0.4);
+            /* Heart */
+            animation-delay: 1.2s;
+        }
+
+        .ring-5 {
+            width: 40%;
+            height: 40%;
+            top: 30%;
+            left: 30%;
+            border-color: rgba(255, 215, 0, 0.4);
+            /* Solar Plexus */
+            animation-delay: 1.6s;
+        }
+
+        .ring-6 {
+            width: 25%;
+            height: 25%;
+            top: 37.5%;
+            left: 37.5%;
+            border-color: rgba(255, 140, 0, 0.4);
+            /* Sacral */
+            animation-delay: 2s;
+        }
+
+        .ring-7 {
+            width: 10%;
+            height: 10%;
+            top: 45%;
+            left: 45%;
+            border-color: rgba(220, 20, 60, 0.4);
+            /* Root */
+            animation-delay: 2.4s;
+        }
+
+        @keyframes chakraPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+                box-shadow: 0 0 40px currentColor;
+            }
+        }
+
+        /* Sacred Om Symbol */
+        .sacred-om {
+            position: absolute;
+            font-size: 300px;
+            color: rgba(212, 165, 116, 0.05);
+            font-family: serif;
+            animation: rotateOm 20s linear infinite;
+        }
+
+        @keyframes rotateOm {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Divine Particles */
+        .divine-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, #f5d794, transparent);
+            border-radius: 50%;
+            animation: floatUp 4s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Energy Rays */
+        .energy-rays {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotateRays 15s linear infinite;
+            pointer-events: none;
+        }
+
+        .ray {
+            position: absolute;
+            width: 2px;
+            height: 50%;
+            background: linear-gradient(to top, transparent, rgba(245, 215, 148, 0.3), transparent);
+            top: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+        }
+
+        @keyframes rotateRays {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Main Content */
+        .splash-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: contentAppear 1.5s ease-out;
+        }
+
+        @keyframes contentAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .splash-main-image {
+            width: min(420px, 75vw);
+            height: auto;
+            position: relative;
+            animation: divineFloat 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 60px rgba(245, 215, 148, 0.6)) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+        }
+
+        @keyframes divineFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px) scale(1);
+            }
+
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        /* Divine Loader */
+        .divine-loader {
+            margin-top: 50px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .lotus-petal {
+            width: 14px;
+            height: 14px;
+            background: linear-gradient(135deg, #f5d794, #d4a574);
+            border-radius: 50% 50% 0;
+            animation: petalBloom 1.5s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(245, 215, 148, 0.6);
+        }
+
+        .lotus-petal:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .lotus-petal:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .lotus-petal:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .lotus-petal:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .lotus-petal:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes petalBloom {
+
+            0%,
+            100% {
+                transform: scale(0.8) rotate(0deg);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.3) rotate(45deg);
+                opacity: 1;
+            }
+        }
+
+        /* Mantra Text */
+        .mantra-text {
+            margin-top: 40px;
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            font-weight: 300;
+            color: rgba(245, 215, 148, 0.9);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            animation: mantraGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes mantraGlow {
+            from {
+                text-shadow: 0 0 10px rgba(245, 215, 148, 0.3);
+            }
+
+            to {
+                text-shadow: 0 0 30px rgba(245, 215, 148, 0.8),
+                    0 0 60px rgba(245, 215, 148, 0.4);
+            }
+        }
+
+        /* Fade Out */
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+
+        /* Main Content Reveal */
+        #main-content {
+            opacity: 0;
+            animation: fadeIn 1.0s ease 2.2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .chakra-rings {
+                width: 350px;
+                height: 350px;
+            }
+
+            .energy-rays {
+                width: 400px;
+                height: 400px;
+            }
+
+            .sacred-om {
+                font-size: 200px;
+            }
+
+            .splash-main-image {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .mantra-text {
+                font-size: 14px;
+                letter-spacing: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chakra-rings {
+                width: 280px;
+                height: 280px;
+            }
+
+            .energy-rays {
+                width: 300px;
+                height: 300px;
+            }
+
+            .sacred-om {
+                font-size: 150px;
+            }
+
+            .mantra-text {
+                font-size: 12px;
+            }
+        }
+
+        /* === CRITICAL MOBILE FIX - INLINE TO BYPASS CACHE === */
+        @media (max-width: 768px) {
+
+            /* Scrolling must work */
+            html,
+            body {
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+                height: auto !important;
+            }
+
+            body {
+                background: url('background-mobile.jpg') no-repeat center center !important;
+                background-size: cover !important;
+                background-attachment: fixed !important;
+                min-height: 100vh !important;
+            }
+
+            .main-container {
+                display: block !important;
+                height: auto !important;
+                padding: 0 !important;
+            }
+
+            /* EXTREMELY TRANSPARENT glass card for mobile */
+            .glass-card {
+                width: 100% !important;
+                height: auto !important;
+                min-height: 100vh !important;
+                border-radius: 0 !important;
+                border-left: none !important;
+                border-right: none !important;
+                /* ONLY 8% opacity - background shows through perfectly */
+                background: linear-gradient(135deg,
+                        rgba(30, 46, 69, 0.10) 0%,
+                        rgba(45, 69, 99, 0.08) 50%,
+                        rgba(58, 81, 113, 0.06) 100%) !important;
+                backdrop-filter: blur(2px) !important;
+                -webkit-backdrop-filter: blur(2px) !important;
+                overflow: visible !important;
+            }
+
+            /* Content flows naturally on mobile - NO SCROLL HIJACKING */
+            .content-scroll-area {
+                overflow: visible !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            /* Header - Mobile Layout Reordering */
+            .header {
+                flex-direction: column !important;
+                gap: 15px !important;
+                padding: 15px 16px !important;
+                background: rgba(30, 46, 69, 0.65) !important;
+                backdrop-filter: blur(15px) !important;
+            }
+
+            /* Unwrap logo section for reordering */
+            .logo-section {
+                display: contents !important;
+            }
+
+            /* 1. TOP: Vibhuti Yoga Title */
+            .logo-text {
+                order: 1 !important;
+                width: 100% !important;
+                text-align: center !important;
+                font-size: 24px !important;
+                margin-bottom: 5px !important;
+                color: var(--golden-primary) !important;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) !important;
+            }
+
+            /* 2. MIDDLE: Headers (Navigation) */
+            .nav-menu {
+                order: 2 !important;
+                width: 100% !important;
+                overflow-x: auto !important;
+                gap: 12px !important;
+                justify-content: center !important;
+                padding-bottom: 5px !important;
+            }
+
+            /* 3. BOTTOM: Logo Image - LARGER */
+            .logo-icon {
+                order: 3 !important;
+                margin-top: 10px !important;
+                transform: none !important;
+                display: flex !important;
+                justify-content: center !important;
+                width: 100% !important;
+            }
+
+            .logo-image {
+                width: 120px !important;
+                height: 120px !important;
+                border-radius: 50% !important;
+                box-shadow: 0 0 25px rgba(255, 216, 155, 0.5) !important;
+                margin: 0 auto !important;
+            }
+
+            /* Donate Button inside Nav */
+            .donate-header-btn {
+                padding: 10px 18px !important;
+                font-size: 15px !important;
+                white-space: nowrap !important;
+                width: auto !important;
+                min-width: fit-content !important;
+                margin-left: 5px !important;
+                box-shadow: 0 4px 15px rgba(245, 215, 148, 0.3) !important;
+                order: 99 !important;
+                /* Ensure it's last in nav */
+            }
+
+            /* Hide Desktop Big Logo on Mobile */
+            .hero-large-logo {
+                display: none !important;
+            }
+
+            .nav-menu::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            .nav-link {
+                flex: 0 0 auto !important;
+                font-size: 15px !important;
+                padding: 8px 16px !important;
+                white-space: nowrap !important;
+            }
+
+            /* ALMOST INVISIBLE sections for mobile */
+            .section-full {
+                background: rgba(30, 46, 69, 0.05) !important;
+                backdrop-filter: blur(1px) !important;
+                -webkit-backdrop-filter: blur(1px) !important;
+                padding: 40px 20px !important;
+                margin: 0 16px 20px !important;
+                border: 1px solid rgba(255, 216, 155, 0.1) !important;
+            }
+
+            #home {
+                background: transparent !important;
+                backdrop-filter: none !important;
+                margin: 0 !important;
+            }
+
+            /* Text with subtle shadows for readability */
+            .hero-title,
+            .section-heading {
+                text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+            }
+
+            .hero-description,
+            .class-desc,
+            .benefit-desc {
+                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- DIVINE CHAKRA SPLASH SCREEN -->
+    <div id="splash-screen">
+        <!-- Sacred Om Symbol -->
+        <div class="sacred-om">ॐ</div>
+
+        <!-- Chakra Energy Rings -->
+        <div class="chakra-rings">
+            <div class="chakra-ring ring-1"></div>
+            <div class="chakra-ring ring-2"></div>
+            <div class="chakra-ring ring-3"></div>
+            <div class="chakra-ring ring-4"></div>
+            <div class="chakra-ring ring-5"></div>
+            <div class="chakra-ring ring-6"></div>
+            <div class="chakra-ring ring-7"></div>
+        </div>
+
+        <!-- Energy Rays -->
+        <div class="energy-rays">
+            <div class="ray" style="transform: rotate(0deg)"></div>
+            <div class="ray" style="transform: rotate(45deg)"></div>
+            <div class="ray" style="transform: rotate(90deg)"></div>
+            <div class="ray" style="transform: rotate(135deg)"></div>
+            <div class="ray" style="transform: rotate(180deg)"></div>
+            <div class="ray" style="transform: rotate(225deg)"></div>
+            <div class="ray" style="transform: rotate(270deg)"></div>
+            <div class="ray" style="transform: rotate(315deg)"></div>
+        </div>
+
+        <!-- Divine Particles -->
+        <div class="divine-particles" id="particles"></div>
+
+        <!-- Main Content -->
+        <div class="splash-content">
+            <img src="splash-image.jpg" alt="Vibhuti Yoga" class="splash-main-image">
+
+            <div class="divine-loader">
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Create floating divine particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 4 + 's';
+            particle.style.animationDuration = (3 + Math.random() * 2) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+
+    <!-- MAIN CONTENT -->
+    <div id="main-content">
+        <div class="main-container">
+            <div class="glass-card">
+                <header class="header" id="main-header">
+                    <div class="logo-section">
+                        <div class="logo-icon">
+                            <img src="logo.jpg" alt="Vibhuti Yoga Logo" class="logo-image">
+                        </div>
+                        <span class="logo-text">Vibhuti Yoga</span>
+                    </div>
+
+                    <nav class="nav-menu">
+                        <a href="#home" class="nav-link active" data-section="home">Home</a>
+                        <a href="#about" class="nav-link" data-section="about">About</a>
+                        <a href="#classes" class="nav-link" data-section="classes">Classes</a>
+                        <a href="#benefits" class="nav-link" data-section="benefits">Benefits</a>
+                        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+                        <button class="donate-header-btn" onclick="scrollToSection('donate')">
+                            <i class="fas fa-heart"></i>
+                            Donate
+                        </button>
+                    </nav>
+                </header>
+
+                <div class="content-scroll-area" id="scroll-container">
+                    <div class="content-inner">
+
+                        <section id="home" class="section-full active-section">
+                            <div class="hero-wrapper"
+                                style="display: flex; align-items: center; justify-content: space-between; gap: 60px; flex-wrap: wrap;">
+                                <div class="hero-large-logo">
+                                    <img src="logo.jpg" alt="Vibhuti Yoga Big Logo"
+                                        style="width: 250px; height: 250px; border-radius: 50%; box-shadow: 0 0 40px rgba(255,216,155,0.4); border: 2px solid rgba(255,255,255,0.2);">
+                                </div>
+                                <div class="hero-text-content" style="flex: 1; text-align: left;">
+                                    <h1 class="hero-title">
+                                        Awaken Your Inner
+                                        <span class="gradient-text">Divine Light</span>
+                                    </h1>
+                                    <p class="hero-description">
+                                        Experience the transformative power of ancient Vibhuti Yoga practices.
+                                        Unite mind, body, and spirit through sacred wisdom.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="hero-stats">
+                                <div class="stat-card">
+                                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                                    <div class="stat-number">10,000+</div>
+                                    <div class="stat-label">Students</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+                                    <div class="stat-number">500+</div>
+                                    <div class="stat-label">Instructors</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                                    <div class="stat-number">50+</div>
+                                    <div class="stat-label">Countries</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="about" class="section-full">
+                            <h2 class="section-heading">
+                                <span class="accent">✦</span>
+                                About Vibhuti Yoga
+                                <span class="accent">✦</span>
+                            </h2>
+                            <div class="about-grid">
+                                <div class="about-text">
+                                    <p class="about-intro">
+                                        Vibhuti Yoga is more than a practice—it's a sacred journey toward
+                                        self-realization and divine consciousness.
+                                    </p>
+                                    <p class="about-description">
+                                        Rooted in ancient Vedic traditions, Vibhuti Yoga combines powerful asanas,
+                                        pranayama, meditation, and spiritual philosophy to help you unlock your highest
+                                        potential.
+                                    </p>
+                                    <div class="principles">
+                                        <div class="principle-item">
+                                            <i class="fas fa-om"></i>
+                                            <span>Authentic Tradition</span>
+                                        </div>
+                                        <div class="principle-item">
+                                            <i class="fas fa-infinity"></i>
+                                            <span>Holistic Approach</span>
+                                        </div>
+                                        <div class="principle-item">
+                                            <i class="fas fa-hand-holding-heart"></i>
+                                            <span>Compassionate Service</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="classes" class="section-full">
+                            <h2 class="section-heading">
+                                <span class="accent">✦</span>
+                                Our Classes
+                                <span class="accent">✦</span>
+                            </h2>
+                            <div class="classes-grid">
+                                <div class="class-card">
+                                    <div class="class-badge beginner">Beginner</div>
+                                    <div class="class-icon"><i class="fas fa-seedling"></i></div>
+                                    <h3 class="class-title">Foundation Hatha</h3>
+                                    <p class="class-desc">Perfect for newcomers. Learn basic postures and breathing
+                                        techniques.</p>
+                                    <div class="class-time">⏱ 60 min</div>
+                                </div>
+
+                                <div class="class-card">
+                                    <div class="class-badge intermediate">Intermediate</div>
+                                    <div class="class-icon"><i class="fas fa-fire"></i></div>
+                                    <h3 class="class-title">Vinyasa Flow</h3>
+                                    <p class="class-desc">Dynamic sequences synchronizing breath with movement.</p>
+                                    <div class="class-time">⏱ 75 min</div>
+                                </div>
+
+                                <div class="class-card">
+                                    <div class="class-badge advanced">Advanced</div>
+                                    <div class="class-icon"><i class="fas fa-star"></i></div>
+                                    <h3 class="class-title">Kundalini Awakening</h3>
+                                    <p class="class-desc">Advanced practices to achieve higher states of consciousness.
+                                    </p>
+                                    <div class="class-time">⏱ 90 min</div>
+                                </div>
+
+                                <div class="class-card">
+                                    <div class="class-badge special">Special</div>
+                                    <div class="class-icon"><i class="fas fa-moon"></i></div>
+                                    <h3 class="class-title">Restorative Yoga</h3>
+                                    <p class="class-desc">Gentle, supported poses for deep relaxation and healing.</p>
+                                    <div class="class-time">⏱ 75 min</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="benefits" class="section-full">
+                            <h2 class="section-heading">
+                                <span class="accent">✦</span>
+                                Benefits
+                                <span class="accent">✦</span>
+                            </h2>
+                            <div class="benefits-grid">
+                                <div class="benefit-card">
+                                    <div class="benefit-icon"><i class="fas fa-heart-pulse"></i></div>
+                                    <h3 class="benefit-title">Physical Health</h3>
+                                    <p class="benefit-desc">Improved flexibility, strength, and cardiovascular health.
+                                    </p>
+                                </div>
+                                <div class="benefit-card">
+                                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                                    <h3 class="benefit-title">Mental Clarity</h3>
+                                    <p class="benefit-desc">Enhanced focus, reduced stress, and better sleep quality.
+                                    </p>
+                                </div>
+                                <div class="benefit-card">
+                                    <div class="benefit-icon"><i class="fas fa-dove"></i></div>
+                                    <h3 class="benefit-title">Spiritual Growth</h3>
+                                    <p class="benefit-desc">Higher consciousness and divine connection.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="contact" class="section-full">
+                            <h2 class="section-heading">
+                                <span class="accent">✦</span>
+                                Contact Us
+                                <span class="accent">✦</span>
+                            </h2>
+                            <div class="contact-grid">
+                                <div class="contact-card">
+                                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                    <h3 class="contact-title">Visit</h3>
+                                    <p class="contact-text">123 Sacred Path<br>Spiritual Haven, India</p>
+                                </div>
+                                <div class="contact-card">
+                                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                                    <h3 class="contact-title">Call</h3>
+                                    <p class="contact-text">+91 98765 43210<br>Mon-Sat: 6AM - 9PM</p>
+                                </div>
+                                <div class="contact-card">
+                                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                                    <h3 class="contact-title">Email</h3>
+                                    <p class="contact-text">info@vibhutiyoga.com<br>24-hour response</p>
+                                </div>
+                            </div>
+
+                            <!-- GOOGLE FORM INTEGRATION -->
+                            <!-- Google Form Removed -->
+                        </section>
+
+                        <section id="donate" class="section-full">
+                            <h2 class="section-heading">
+                                <span class="accent">✦</span>
+                                Support Our Mission
+                                <span class="accent">✦</span>
+                            </h2>
+                            <!-- TABS NAVIGATION -->
+                            <div class="support-tabs-container"
+                                style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 20px; margin-bottom: 25px; display: inline-flex; gap: 10px; border: 1px solid rgba(255,216,155,0.2);">
+                                <button class="support-tab active" onclick="switchTab('donation')"
+                                    style="padding: 10px 24px; border-radius: 15px; border: none; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: var(--golden-primary); color: var(--text-dark);">
+                                    <i class="fas fa-heart"></i> Donation
+                                </button>
+                                <button class="support-tab" onclick="switchTab('queries')"
+                                    style="padding: 10px 24px; border-radius: 15px; border: none; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: transparent; color: var(--text-primary); border: 1px solid var(--golden-primary);">
+                                    <i class="fas fa-question-circle"></i> Queries
+                                </button>
+                            </div>
+
+                            <!-- DONATION TAB CONTENT -->
+                            <div id="tab-donation" class="tab-content active"
+                                style="display: block; animation: fadeIn 0.5s ease;">
+                                <div class="donate-box"
+                                    style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 24px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3); color: #2d4563;">
+                                    <h3
+                                        style="color: #2d4563; margin-bottom: 10px; font-family: var(--font-heading); font-size: 24px;">
+                                        <i class="fas fa-heart" style="color: #e74c3c;"></i> Contribute with Love
+                                    </h3>
+                                    <p class="donate-description"
+                                        style="color: #4a5a75; margin-bottom: 20px; font-size: 15px;">
+                                        Your support enables the continuation of sacred wisdom and service to humanity.
+                                    </p>
+
+                                    <!-- UPI & QR -->
+                                    <div class="upi-section"
+                                        style="background: #f8f9fa; padding: 12px; border-radius: 12px; border: 1px solid #e0e0e0; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                                        <div>
+                                            <span
+                                                style="display: block; font-size: 12px; color: #7f8c8d; margin-bottom: 4px;">UPI
+                                                ID</span>
+                                            <span class="upi-label"
+                                                style="color: #2d4563; font-weight: bold; font-family: monospace; font-size: 16px;">vsn@ybl</span>
+                                        </div>
+                                        <button class="copy-btn" onclick="copyUPI()"
+                                            style="background: #d4a574; border: none; padding: 8px 15px; border-radius: 8px; color: white; cursor: pointer;">
+                                            <i class="far fa-copy"></i> Copy
+                                        </button>
+                                    </div>
+
+                                    <div class="qr-container" style="margin-bottom: 20px;">
+                                        <div class="qr-frame"
+                                            style="border: 2px solid #d4a574; padding: 10px; border-radius: 12px; display: inline-block;">
+                                            <img src="qr-code.png" alt="QR Code" class="qr-code"
+                                                style="width: 150px; height: 150px;">
+                                        </div>
+                                    </div>
+
+                                    <a href="upi://pay?pa=vsn@ybl&pn=Vibhuti%20Yoga&cu=INR" class="donate-btn-large"
+                                        style="width: 100%; display: block; text-decoration: none; margin-bottom: 30px; background: linear-gradient(135deg, #27ae60, #2ecc71); box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);">
+                                        <i class="fas fa-mobile-alt"></i> Pay via UPI App
+                                    </a>
+
+                                    <!-- RECEIPT SUBMISSION -->
+                                    <hr style="border: 0; border-top: 1px dashed #bdc3c7; margin: 20px 0;">
+                                    <h4 style="color: #2c3e50; margin-bottom: 15px; font-size: 18px;">✨ Verify Donation
+                                    </h4>
+
+                                    <form id="receipt-form" onsubmit="submitReceipt(event)" style="text-align: left;">
+                                        <div style="margin-bottom: 15px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Your
+                                                Name</label>
+                                            <input type="text" id="donor-name" required placeholder="Enter your name"
+                                                style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 8px; font-size: 16px;">
+                                        </div>
+                                        <div style="margin-bottom: 15px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Amount
+                                                Paid</label>
+                                            <input type="number" id="donor-amount" required placeholder="e.g. 500"
+                                                style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 8px; font-size: 16px;">
+                                        </div>
+                                        <div style="margin-bottom: 20px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Upload
+                                                Receipt</label>
+                                            <div class="file-upload-wrapper" style="position: relative;">
+                                                <input type="file" id="receipt-file" accept="image/*"
+                                                    onchange="handleFileSelect(this)" style="display: none;">
+                                                <label for="receipt-file" id="file-label"
+                                                    style="display: block; padding: 12px; background: #f1f2f6; border-radius: 8px; border: 2px dashed #b2bec3; text-align: center; cursor: pointer; transition: all 0.3s; color: #636e72;">
+                                                    <i class="fas fa-cloud-upload-alt"
+                                                        style="font-size: 20px; margin-bottom: 5px; display: block;"></i>
+                                                    <span id="file-text">Tap to Select Screenshot</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit"
+                                            style="width: 100%; padding: 14px; background: linear-gradient(135deg, #2980b9, #3498db); border: none; color: white; border-radius: 30px; font-weight: bold; font-size: 16px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);">
+                                            <i class="fab fa-whatsapp"></i> Submit Receipt
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- QUERIES TAB CONTENT -->
+                            <div id="tab-queries" class="tab-content"
+                                style="display: none; animation: fadeIn 0.5s ease;">
+                                <div class="query-box"
+                                    style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 24px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3); color: #2d4563;">
+                                    <h3
+                                        style="color: #2d4563; margin-bottom: 10px; font-family: var(--font-heading); font-size: 24px;">
+                                        <i class="fas fa-paper-plane" style="color: #d4a574;"></i> Send Us a Query
+                                    </h3>
+                                    <p style="color: #4a5a75; margin-bottom: 25px; font-size: 15px;">
+                                        We'd love to help! Choose a topic below to start a chat.
+                                    </p>
+
+                                    <!-- Filter / Options -->
+                                    <div class="query-options"
+                                        style="display: flex; flex-direction: column; gap: 12px;">
+                                        <div class="query-option"
+                                            style="padding: 16px; background: #ffffff; border-radius: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e0e0e0; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: #2d4563; font-weight: 600;">
+                                            <span>🗓 Class Schedules & Batches</span>
+                                            <i class="fas fa-chevron-right" style="color: #d4a574;"></i>
+                                        </div>
+                                        <div class="query-option"
+                                            style="padding: 16px; background: #ffffff; border-radius: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e0e0e0; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: #2d4563; font-weight: 600;">
+                                            <span>💰 Fee Structure & Payments</span>
+                                            <i class="fas fa-chevron-right" style="color: #d4a574;"></i>
+                                        </div>
+                                        <div class="query-option"
+                                            style="padding: 16px; background: #ffffff; border-radius: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e0e0e0; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: #2d4563; font-weight: 600;">
+                                            <span>🧘‍♂️ Private Sessions</span>
+                                            <i class="fas fa-chevron-right" style="color: #d4a574;"></i>
+                                        </div>
+                                    </div>
+                                    <button
+                                        style="margin-top: 25px; width: 100%; padding: 14px; background: linear-gradient(135deg, #d4a574, #ffd89b); border: none; color: #1e2e45; border-radius: 30px; font-weight: bold; font-size: 16px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 15px rgba(212, 165, 116, 0.4);">
+                                        <i class="fab fa-whatsapp"></i> Start WhatsApp Chat
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="footer-text">© 2026 Vibhuti Yoga. All rights reserved.</div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fail-safe to remove splash screen from interaction flow
+        setTimeout(() => {
+            const splash = document.getElementById('splash-screen');
+            if (splash) {
+                splash.style.pointerEvents = 'none';
+                splash.style.display = 'none';
+            }
+        }, 3500);
+    </script>
+    <script>
+        // TAB SWITCHING LOGIC
+        function switchTab(tabName) {
+            // Update Tab Buttons
+            document.querySelectorAll('.support-tab').forEach(btn => {
+                if (btn.textContent.toLowerCase().includes(tabName)) {
+                    btn.style.background = 'var(--golden-primary)';
+                    btn.style.color = 'var(--text-dark)';
+                    btn.style.border = 'none';
+                } else {
+                    btn.style.background = 'transparent';
+                    btn.style.color = 'var(--text-primary)';
+                    btn.style.border = '1px solid var(--golden-primary)';
+                }
+            });
+
+            // Show/Hide Content
+            if (tabName === 'donation') {
+                document.getElementById('tab-donation').style.display = 'block';
+                document.getElementById('tab-queries').style.display = 'none';
+            } else {
+                document.getElementById('tab-donation').style.display = 'none';
+                document.getElementById('tab-queries').style.display = 'block';
+            }
+        }
+
+        // RECEIPT SUBMISSION LOGIC
+        function submitReceipt(e) {
+            e.preventDefault();
+            const name = document.getElementById('donor-name').value;
+            const amount = document.getElementById('donor-amount').value;
+
+            // Format WhatsApp Message
+            const message = `Namaste 🙏,\n\nI have successfully made a donation to Vibhuti Yoga.\n\n*Name:* ${name}\n*Amount:* ₹${amount}\n\nI am attaching the payment screenshot below.`;
+
+            // Open WhatsApp (Replace with actual business number if available, using strict generic link for now)
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // FILE SELECTION HANDLER
+        function handleFileSelect(input) {
+            const label = document.getElementById('file-label');
+            const text = document.getElementById('file-text');
+
+            if (input.files && input.files[0]) {
+                const fileName = input.files[0].name;
+                text.textContent = fileName;
+                label.style.borderColor = '#2ecc71';
+                label.style.background = '#e8f8f5';
+                label.innerHTML = `<i class="fas fa-check-circle" style="color: #2ecc71; font-size: 20px; margin-bottom: 5px; display: block;"></i> ${fileName}`;
+            }
+        }
+
+        // UPDATE COPY FUNCTION FOR NEW ID
+        function copyUPI() {
+            navigator.clipboard.writeText('vsn@ybl').then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                }, 2000);
+            });
+        }
+    </script>
+    <script src="vibhuti-script.js?v=8"></script>
+</body>
+
+</html>

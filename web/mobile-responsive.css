@@ -1,0 +1,438 @@
+/* 
+   VIBHUTI YOGA - PREMIUM MOBILE DESIGN
+   Mobile-first responsive design matching the cosmic desktop aesthetic
+*/
+
+@media (max-width: 768px) {
+    /* === MOBILE LAYOUT === */
+
+    /* Natural mobile scrolling */
+    html,
+    body {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        height: auto !important;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: url('background-mobile.jpg') no-repeat center center !important;
+        background-size: cover !important;
+        background-attachment: fixed !important;
+        min-height: 100vh !important;
+        display: block !important;
+        padding: 0 !important;
+    }
+
+    /* Main container flows naturally */
+    .main-container {
+        display: block !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    /* Glass card adapts to mobile - MUCH MORE TRANSPARENT */
+    .glass-card {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+        /* TRANSPARENT so background is visible */
+        background: linear-gradient(135deg,
+                rgba(30, 46, 69, 0.40) 0%,
+                rgba(45, 69, 99, 0.35) 50%,
+                rgba(58, 81, 113, 0.30) 100%) !important;
+        backdrop-filter: blur(15px) saturate(130%) !important;
+        -webkit-backdrop-filter: blur(15px) saturate(130%) !important;
+        box-shadow: none !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        display: block !important;
+    }
+
+    /* Content scrolls naturally */
+    .content-scroll-area {
+        flex: unset !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        height: auto !important;
+        padding: 0 !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .content-inner {
+        padding: 20px 0 40px !important;
+    }
+
+    /* === HEADER === */
+    .header {
+        position: sticky !important;
+        top: 0 !important;
+        padding: 14px 16px !important;
+        /* Match desktop cosmic blue */
+        background: linear-gradient(135deg,
+                rgba(30, 46, 69, 0.90) 0%,
+                rgba(45, 69, 99, 0.85) 100%) !important;
+        backdrop-filter: blur(25px) !important;
+        -webkit-backdrop-filter: blur(25px) !important;
+        border-bottom: 1px solid rgba(255, 216, 155, 0.2) !important;
+        z-index: 1000 !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .logo-section {
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    .logo-image,
+    .logo-icon {
+        width: 44px !important;
+        height: 44px !important;
+    }
+
+    .logo-text {
+        font-size: 22px !important;
+        letter-spacing: 1px !important;
+        color: var(--white-bright) !important;
+    }
+
+    /* Horizontal scrollable navigation */
+    .nav-menu {
+        width: 100% !important;
+        display: flex !important;
+        overflow-x: auto !important;
+        padding-bottom: 4px !important;
+        gap: 10px !important;
+        justify-content: flex-start !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+    }
+
+    .nav-menu::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .nav-link {
+        flex: 0 0 auto !important;
+        font-size: 15px !important;
+        padding: 8px 16px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 216, 155, 0.2) !important;
+        border-radius: 20px !important;
+        white-space: nowrap !important;
+        color: var(--text-primary) !important;
+    }
+
+    .nav-link.active {
+        background: linear-gradient(135deg, var(--golden-deep), var(--golden-primary)) !important;
+        color: var(--text-dark) !important;
+        border-color: var(--golden-primary) !important;
+        box-shadow: 0 0 20px rgba(255, 216, 155, 0.4) !important;
+    }
+
+    .header-actions {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .donate-header-btn {
+        font-size: 16px !important;
+        padding: 12px 24px !important;
+    }
+
+    /* === SECTIONS - TRANSPARENT TO SHOW BACKGROUND === */
+    .section-full {
+        padding: 50px 20px !important;
+        min-height: auto !important;
+        margin: 0 16px 24px !important;
+        /* Very transparent to show cosmic background */
+        background: linear-gradient(135deg,
+                rgba(30, 46, 69, 0.20) 0%,
+                rgba(45, 69, 99, 0.15) 100%) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-radius: 24px !important;
+        border: 1px solid rgba(255, 216, 155, 0.25) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    #home {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 40px 20px !important;
+    }
+
+    /* === TYPOGRAPHY === */
+    .hero-title {
+        font-size: 36px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .gradient-text {
+        font-size: 40px !important;
+        display: inline !important;
+    }
+
+    .hero-description {
+        font-size: 17px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 30px !important;
+    }
+
+    .section-heading {
+        font-size: 30px !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        margin-bottom: 35px !important;
+    }
+
+    .about-intro {
+        font-size: 18px !important;
+    }
+
+    .about-description {
+        font-size: 16px !important;
+    }
+
+    .class-title,
+    .benefit-title,
+    .contact-title {
+        font-size: 22px !important;
+    }
+
+    .class-desc,
+    .benefit-desc,
+    .contact-text {
+        font-size: 15px !important;
+    }
+
+    /* === GRIDS === */
+    .hero-stats {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        margin-top: 30px !important;
+    }
+
+    .stat-card {
+        padding: 24px 20px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 216, 155, 0.15) !important;
+    }
+
+    .stat-number {
+        font-size: 32px !important;
+    }
+
+    .stat-label {
+        font-size: 13px !important;
+    }
+
+    .classes-grid,
+    .benefits-grid,
+    .contact-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .class-card,
+    .benefit-card,
+    .contact-card {
+        padding: 28px 20px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 216, 155, 0.15) !important;
+        border-radius: 20px !important;
+    }
+
+    .principles {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .principle-item {
+        font-size: 16px !important;
+        padding: 14px 20px !important;
+        justify-content: center !important;
+    }
+
+    /* === DONATE SECTION === */
+    .upi-section {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .upi-label {
+        font-size: 16px !important;
+        padding: 14px 24px !important;
+    }
+
+    .qr-container {
+        margin-bottom: 30px !important;
+    }
+
+    .qr-frame {
+        width: 220px !important;
+        height: 220px !important;
+    }
+
+    .donate-btn-large {
+        font-size: 17px !important;
+        padding: 16px 40px !important;
+    }
+
+    /* === GOOGLE FORM === */
+    .google-form-container {
+        margin: 0 16px 24px !important;
+        border-radius: 24px !important;
+        background: linear-gradient(135deg,
+                rgba(30, 46, 69, 0.90) 0%,
+                rgba(45, 69, 99, 0.85) 100%) !important;
+    }
+
+    .form-header {
+        padding: 30px 20px !important;
+    }
+
+    .form-icon-wrapper {
+        width: 64px !important;
+        height: 64px !important;
+    }
+
+    .form-heading {
+        font-size: 26px !important;
+    }
+
+    .form-description {
+        font-size: 16px !important;
+    }
+
+    .form-content {
+        padding: 0 20px 40px !important;
+    }
+
+    /* === FOOTER === */
+    .footer {
+        padding: 24px 20px !important;
+        background: linear-gradient(135deg,
+                rgba(30, 46, 69, 0.90) 0%,
+                rgba(45, 69, 99, 0.85) 100%) !important;
+        backdrop-filter: blur(20px) !important;
+        border-top: 1px solid rgba(255, 216, 155, 0.2) !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .social-links {
+        gap: 16px !important;
+        justify-content: center !important;
+    }
+
+    .social-icon {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 20px !important;
+    }
+
+    .footer-text {
+        font-size: 14px !important;
+        text-align: center !important;
+    }
+}
+
+/* === SMALL MOBILE (< 480px) === */
+@media (max-width: 480px) {
+    .section-full {
+        margin: 0 12px 20px !important;
+        padding: 40px 16px !important;
+    }
+
+    .hero-title {
+        font-size: 32px !important;
+    }
+
+    .gradient-text {
+        font-size: 36px !important;
+    }
+
+    .section-heading {
+        font-size: 26px !important;
+    }
+
+    .logo-text {
+        font-size: 18px !important;
+    }
+
+    .nav-link {
+        font-size: 14px !important;
+        padding: 7px 14px !important;
+    }
+}
+
+/* === SPLASH SCREEN MOBILE === */
+@media (max-width: 768px) {
+    #splash-screen {
+        background: radial-gradient(circle at center, #2a1a50 0%, #1a0f30 100%) !important;
+    }
+
+    .chakra-rings {
+        width: 320px !important;
+        height: 320px !important;
+    }
+
+    .energy-rays {
+        width: 380px !important;
+        height: 380px !important;
+    }
+
+    .sacred-om {
+        font-size: 180px !important;
+    }
+
+    .splash-main-image {
+        width: 85% !important;
+        max-width: 320px !important;
+    }
+
+    .mantra-text {
+        font-size: 13px !important;
+        letter-spacing: 1.5px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .chakra-rings {
+        width: 260px !important;
+        height: 260px !important;
+    }
+
+    .energy-rays {
+        width: 280px !important;
+        height: 280px !important;
+    }
+
+    .sacred-om {
+        font-size: 140px !important;
+    }
+
+    .splash-main-image {
+        max-width: 260px !important;
+    }
+
+    .mantra-text {
+        font-size: 11px !important;
+    }
+}
