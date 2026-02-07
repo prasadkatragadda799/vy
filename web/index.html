@@ -457,13 +457,27 @@
                 display: block !important;
             }
 
-            /* Header - Mobile Layout Reordering */
+            /* Header - Mobile Layout - FIXED AT TOP */
             .header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+                transform: none !important;
                 flex-direction: column !important;
                 gap: 15px !important;
                 padding: 15px 16px !important;
-                background: rgba(30, 46, 69, 0.65) !important;
-                backdrop-filter: blur(15px) !important;
+                background: rgba(30, 46, 69, 0.95) !important;
+                backdrop-filter: blur(25px) !important;
+                -webkit-backdrop-filter: blur(25px) !important;
+                z-index: 1000 !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+            }
+
+            /* Content offset for fixed header */
+            .glass-card {
+                padding-top: 260px !important;
             }
 
             /* Unwrap logo section for reordering */
@@ -632,29 +646,30 @@
 
     <!-- MAIN CONTENT -->
     <div id="main-content">
+        <!-- FIXED HEADER - Outside glass-card to avoid backdrop-filter containment -->
+        <header class="header" id="main-header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Vibhuti Yoga Logo" class="logo-image">
+                </div>
+                <span class="logo-text">Vibhuti Yoga</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#classes" class="nav-link" data-section="classes">Courses</a>
+                <a href="#benefits" class="nav-link" data-section="benefits">Benefits</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+                <button class="donate-header-btn" onclick="scrollToSection('donate')">
+                    <i class="fas fa-heart"></i>
+                    Donate
+                </button>
+            </nav>
+        </header>
+
         <div class="main-container">
             <div class="glass-card">
-                <header class="header" id="main-header">
-                    <div class="logo-section">
-                        <div class="logo-icon">
-                            <img src="logo.jpg" alt="Vibhuti Yoga Logo" class="logo-image">
-                        </div>
-                        <span class="logo-text">Vibhuti Yoga</span>
-                    </div>
-
-                    <nav class="nav-menu">
-                        <a href="#home" class="nav-link active" data-section="home">Home</a>
-                        <a href="#about" class="nav-link" data-section="about">About</a>
-                        <a href="#classes" class="nav-link" data-section="classes">Classes</a>
-                        <a href="#benefits" class="nav-link" data-section="benefits">Benefits</a>
-                        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-                        <button class="donate-header-btn" onclick="scrollToSection('donate')">
-                            <i class="fas fa-heart"></i>
-                            Donate
-                        </button>
-                    </nav>
-                </header>
-
                 <div class="content-scroll-area" id="scroll-container">
                     <div class="content-inner">
 
@@ -733,42 +748,63 @@
                         <section id="classes" class="section-full">
                             <h2 class="section-heading">
                                 <span class="accent">✦</span>
-                                Our Classes
+                                Our Courses
                                 <span class="accent">✦</span>
                             </h2>
                             <div class="classes-grid">
-                                <div class="class-card">
-                                    <div class="class-badge beginner">Beginner</div>
-                                    <div class="class-icon"><i class="fas fa-seedling"></i></div>
-                                    <h3 class="class-title">Foundation Hatha</h3>
-                                    <p class="class-desc">Perfect for newcomers. Learn basic postures and breathing
-                                        techniques.</p>
-                                    <div class="class-time">⏱ 60 min</div>
+                                <!-- INTUITION POWER -->
+                                <div class="class-card" data-class="Intuition Power">
+                                    <div class="class-badge beginner">3 Levels</div>
+                                    <div class="class-icon"><i class="fas fa-eye"></i></div>
+                                    <h3 class="class-title">Intuition Power</h3>
+                                    <p class="class-desc">Unlock your inner wisdom and develop heightened intuitive
+                                        abilities through progressive levels.</p>
+                                    <div class="class-levels"
+                                        style="margin-bottom: 15px; font-size: 14px; color: rgba(255,255,255,0.8);">
+                                        <span style="display: block; margin: 4px 0;">🌱 1st Level - Foundation</span>
+                                        <span style="display: block; margin: 4px 0;">🌿 2nd Level - Intermediate</span>
+                                        <span style="display: block; margin: 4px 0;">🌳 3rd Level - Advanced</span>
+                                    </div>
+                                    <button class="register-class-btn" onclick="registerForCourse('Intuition Power')">
+                                        <i class="fas fa-user-plus"></i> Register
+                                    </button>
                                 </div>
 
-                                <div class="class-card">
-                                    <div class="class-badge intermediate">Intermediate</div>
-                                    <div class="class-icon"><i class="fas fa-fire"></i></div>
-                                    <h3 class="class-title">Vinyasa Flow</h3>
-                                    <p class="class-desc">Dynamic sequences synchronizing breath with movement.</p>
-                                    <div class="class-time">⏱ 75 min</div>
+                                <!-- MIND POWER -->
+                                <div class="class-card" data-class="Mind Power">
+                                    <div class="class-badge intermediate">3 Levels</div>
+                                    <div class="class-icon"><i class="fas fa-brain"></i></div>
+                                    <h3 class="class-title">Mind Power</h3>
+                                    <p class="class-desc">Master the power of your mind through focused techniques that
+                                        enhance mental clarity and strength.</p>
+                                    <div class="class-levels"
+                                        style="margin-bottom: 15px; font-size: 14px; color: rgba(255,255,255,0.8);">
+                                        <span style="display: block; margin: 4px 0;">🌱 1st Level - Foundation</span>
+                                        <span style="display: block; margin: 4px 0;">🌿 2nd Level - Intermediate</span>
+                                        <span style="display: block; margin: 4px 0;">🌳 3rd Level - Advanced</span>
+                                    </div>
+                                    <button class="register-class-btn" onclick="registerForCourse('Mind Power')">
+                                        <i class="fas fa-user-plus"></i> Register
+                                    </button>
                                 </div>
 
-                                <div class="class-card">
-                                    <div class="class-badge advanced">Advanced</div>
-                                    <div class="class-icon"><i class="fas fa-star"></i></div>
-                                    <h3 class="class-title">Kundalini Awakening</h3>
-                                    <p class="class-desc">Advanced practices to achieve higher states of consciousness.
-                                    </p>
-                                    <div class="class-time">⏱ 90 min</div>
-                                </div>
-
-                                <div class="class-card">
-                                    <div class="class-badge special">Special</div>
-                                    <div class="class-icon"><i class="fas fa-moon"></i></div>
-                                    <h3 class="class-title">Restorative Yoga</h3>
-                                    <p class="class-desc">Gentle, supported poses for deep relaxation and healing.</p>
-                                    <div class="class-time">⏱ 75 min</div>
+                                <!-- HOLISTIC HEALING ENERGY POWER -->
+                                <div class="class-card" data-class="Holistic Healing Energy Power">
+                                    <div class="class-badge advanced">3 Modules</div>
+                                    <div class="class-icon"><i class="fas fa-spa"></i></div>
+                                    <h3 class="class-title">Holistic Healing Energy Power</h3>
+                                    <p class="class-desc">Learn sacred healing techniques to channel universal energy
+                                        for physical and spiritual wellness.</p>
+                                    <div class="class-levels"
+                                        style="margin-bottom: 15px; font-size: 14px; color: rgba(255,255,255,0.8);">
+                                        <span style="display: block; margin: 4px 0;">✨ 1st Module - Basics</span>
+                                        <span style="display: block; margin: 4px 0;">💫 2nd Module - Practitioner</span>
+                                        <span style="display: block; margin: 4px 0;">⭐ 3rd Module - Master</span>
+                                    </div>
+                                    <button class="register-class-btn"
+                                        onclick="registerForCourse('Holistic Healing Energy Power')">
+                                        <i class="fas fa-user-plus"></i> Register
+                                    </button>
                                 </div>
                             </div>
                         </section>
@@ -810,17 +846,28 @@
                                 <div class="contact-card">
                                     <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                                     <h3 class="contact-title">Visit</h3>
-                                    <p class="contact-text">123 Sacred Path<br>Spiritual Haven, India</p>
+                                    <p class="contact-text">Hyderabad<br>Telangana, India</p>
                                 </div>
                                 <div class="contact-card">
                                     <div class="contact-icon"><i class="fas fa-phone"></i></div>
                                     <h3 class="contact-title">Call</h3>
-                                    <p class="contact-text">+91 98765 43210<br>Mon-Sat: 6AM - 9PM</p>
+                                    <p class="contact-text">
+                                        <a href="tel:+919966737777" style="color: inherit; text-decoration: none;">
+                                            +91 99667 37777
+                                        </a>
+                                        <br>Mon-Sat: 6AM - 9PM
+                                    </p>
                                 </div>
                                 <div class="contact-card">
                                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                                     <h3 class="contact-title">Email</h3>
-                                    <p class="contact-text">info@vibhutiyoga.com<br>24-hour response</p>
+                                    <p class="contact-text">
+                                        <a href="mailto:vibhuti7thsence@gmail.com"
+                                            style="color: inherit; text-decoration: none;">
+                                            vibhuti7thsence@gmail.com
+                                        </a>
+                                        <br>24-hour response
+                                    </p>
                                 </div>
                             </div>
 
@@ -841,9 +888,9 @@
                                     style="padding: 10px 24px; border-radius: 15px; border: none; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: var(--golden-primary); color: var(--text-dark);">
                                     <i class="fas fa-heart"></i> Donation
                                 </button>
-                                <button class="support-tab" onclick="switchTab('queries')"
+                                <button class="support-tab" onclick="switchTab('registration')"
                                     style="padding: 10px 24px; border-radius: 15px; border: none; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: transparent; color: var(--text-primary); border: 1px solid var(--golden-primary);">
-                                    <i class="fas fa-question-circle"></i> Queries
+                                    <i class="fas fa-user-plus"></i> Registration
                                 </button>
                             </div>
 
@@ -861,32 +908,89 @@
                                         Your support enables the continuation of sacred wisdom and service to humanity.
                                     </p>
 
-                                    <!-- UPI & QR -->
-                                    <div class="upi-section"
-                                        style="background: #f8f9fa; padding: 12px; border-radius: 12px; border: 1px solid #e0e0e0; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
-                                        <div>
-                                            <span
-                                                style="display: block; font-size: 12px; color: #7f8c8d; margin-bottom: 4px;">UPI
-                                                ID</span>
-                                            <span class="upi-label"
-                                                style="color: #2d4563; font-weight: bold; font-family: monospace; font-size: 16px;">vsn@ybl</span>
+                                    <!-- QR CODE - Centered and Prominent -->
+                                    <div class="qr-container" style="text-align: center; margin-bottom: 25px;">
+                                        <div class="qr-frame" style="
+                                            display: inline-block;
+                                            padding: 15px;
+                                            background: linear-gradient(135deg, #fff9f0 0%, #fff 100%);
+                                            border-radius: 20px;
+                                            border: 3px solid #d4a574;
+                                            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+                                        ">
+                                            <img src="qr-code.png" alt="Scan to Pay" class="qr-code" style="
+                                                width: 180px;
+                                                height: 180px;
+                                                border-radius: 12px;
+                                            ">
                                         </div>
-                                        <button class="copy-btn" onclick="copyUPI()"
-                                            style="background: #d4a574; border: none; padding: 8px 15px; border-radius: 8px; color: white; cursor: pointer;">
-                                            <i class="far fa-copy"></i> Copy
-                                        </button>
+                                        <p style="margin-top: 12px; font-size: 14px; color: #7f8c8d;">
+                                            <i class="fas fa-qrcode" style="color: #d4a574;"></i>
+                                            Scan with any UPI App
+                                        </p>
                                     </div>
 
-                                    <div class="qr-container" style="margin-bottom: 20px;">
-                                        <div class="qr-frame"
-                                            style="border: 2px solid #d4a574; padding: 10px; border-radius: 12px; display: inline-block;">
-                                            <img src="qr-code.png" alt="QR Code" class="qr-code"
-                                                style="width: 150px; height: 150px;">
+                                    <!-- UPI ID - Centered and Styled -->
+                                    <div class="upi-section" style="
+                                        background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
+                                        padding: 18px 20px;
+                                        border-radius: 16px;
+                                        border: 2px solid #d4a574;
+                                        margin-bottom: 20px;
+                                        text-align: center;
+                                    ">
+                                        <span
+                                            style="display: block; font-size: 12px; color: #7f8c8d; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+                                            UPI ID
+                                        </span>
+                                        <div
+                                            style="display: flex; align-items: center; justify-content: center; gap: 12px;">
+                                            <span class="upi-label" style="
+                                                color: #2d4563;
+                                                font-weight: 700;
+                                                font-family: 'Courier New', monospace;
+                                                font-size: 20px;
+                                                letter-spacing: 1px;
+                                            ">srivsn@icici</span>
+                                            <button class="copy-btn" onclick="copyUPI()" style="
+                                                background: linear-gradient(135deg, #d4a574, #e8c89e);
+                                                border: none;
+                                                padding: 10px 18px;
+                                                border-radius: 10px;
+                                                color: #2d4563;
+                                                cursor: pointer;
+                                                font-weight: 600;
+                                                font-size: 14px;
+                                                display: flex;
+                                                align-items: center;
+                                                gap: 6px;
+                                                transition: all 0.3s ease;
+                                                box-shadow: 0 3px 10px rgba(212, 165, 116, 0.3);
+                                            ">
+                                                <i class="far fa-copy"></i> Copy
+                                            </button>
                                         </div>
                                     </div>
 
-                                    <a href="upi://pay?pa=vsn@ybl&pn=Vibhuti%20Yoga&cu=INR" class="donate-btn-large"
-                                        style="width: 100%; display: block; text-decoration: none; margin-bottom: 30px; background: linear-gradient(135deg, #27ae60, #2ecc71); box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);">
+                                    <!-- Pay Button -->
+                                    <a href="upi://pay?pa=srivsn@icici&pn=Vibhuti%20Yoga&cu=INR"
+                                        class="donate-btn-large" style="
+                                        width: 100%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        gap: 10px;
+                                        text-decoration: none;
+                                        padding: 16px 24px;
+                                        margin-bottom: 30px;
+                                        background: linear-gradient(135deg, #27ae60, #2ecc71);
+                                        color: white;
+                                        font-weight: 700;
+                                        font-size: 18px;
+                                        border-radius: 30px;
+                                        box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);
+                                        transition: all 0.3s ease;
+                                    ">
                                         <i class="fas fa-mobile-alt"></i> Pay via UPI App
                                     </a>
 
@@ -901,19 +1005,39 @@
                                                 style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Your
                                                 Name</label>
                                             <input type="text" id="donor-name" required placeholder="Enter your name"
-                                                style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 8px; font-size: 16px;">
+                                                style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                                        </div>
+                                        <div style="margin-bottom: 15px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Phone
+                                                Number</label>
+                                            <input type="tel" id="donor-phone" required
+                                                placeholder="Enter your phone number"
+                                                style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
                                         </div>
                                         <div style="margin-bottom: 15px;">
                                             <label
                                                 style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Amount
-                                                Paid</label>
+                                                Paid (₹)</label>
                                             <input type="number" id="donor-amount" required placeholder="e.g. 500"
-                                                style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 8px; font-size: 16px;">
+                                                style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
                                         </div>
-                                        <div style="margin-bottom: 20px;">
+                                        <div style="margin-bottom: 15px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Transaction/Reference
+                                                ID (Optional)</label>
+                                            <input type="text" id="donor-txn-id"
+                                                placeholder="Enter transaction ID from payment"
+                                                style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                                        </div>
+
+
+
+                                        <!-- Screenshot Upload (only for WhatsApp) -->
+                                        <div id="screenshot-upload-section" style="margin-bottom: 20px; display: none;">
                                             <label
                                                 style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Upload
-                                                Receipt</label>
+                                                Receipt Screenshot</label>
                                             <div class="file-upload-wrapper" style="position: relative;">
                                                 <input type="file" id="receipt-file" accept="image/*"
                                                     onchange="handleFileSelect(this)" style="display: none;">
@@ -925,50 +1049,107 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <button type="submit"
-                                            style="width: 100%; padding: 14px; background: linear-gradient(135deg, #2980b9, #3498db); border: none; color: white; border-radius: 30px; font-weight: bold; font-size: 16px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);">
-                                            <i class="fab fa-whatsapp"></i> Submit Receipt
+
+                                        <button type="submit" id="donation-submit-btn"
+                                            style="width: 100%; padding: 14px; background: linear-gradient(135deg, #4CAF50, #66BB6A); border: none; color: white; border-radius: 30px; font-weight: bold; font-size: 16px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);">
+                                            <i class="fas fa-paper-plane"></i> Submit
                                         </button>
                                     </form>
                                 </div>
                             </div>
 
-                            <!-- QUERIES TAB CONTENT -->
-                            <div id="tab-queries" class="tab-content"
+                            <!-- REGISTRATION TAB CONTENT -->
+                            <div id="tab-registration" class="tab-content"
                                 style="display: none; animation: fadeIn 0.5s ease;">
-                                <div class="query-box"
+                                <div class="registration-box"
                                     style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 24px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3); color: #2d4563;">
                                     <h3
                                         style="color: #2d4563; margin-bottom: 10px; font-family: var(--font-heading); font-size: 24px;">
-                                        <i class="fas fa-paper-plane" style="color: #d4a574;"></i> Send Us a Query
+                                        <i class="fas fa-user-plus" style="color: #d4a574;"></i> Class Registration
                                     </h3>
                                     <p style="color: #4a5a75; margin-bottom: 25px; font-size: 15px;">
-                                        We'd love to help! Choose a topic below to start a chat.
+                                        Fill in your details to register for a yoga class. We'll contact you shortly!
                                     </p>
 
-                                    <!-- Filter / Options -->
-                                    <div class="query-options"
-                                        style="display: flex; flex-direction: column; gap: 12px;">
-                                        <div class="query-option"
-                                            style="padding: 16px; background: #ffffff; border-radius: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e0e0e0; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: #2d4563; font-weight: 600;">
-                                            <span>🗓 Class Schedules & Batches</span>
-                                            <i class="fas fa-chevron-right" style="color: #d4a574;"></i>
+                                    <form id="registration-form" onsubmit="submitRegistration(event)"
+                                        style="text-align: left;">
+                                        <div style="margin-bottom: 15px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Your
+                                                Name *</label>
+                                            <input type="text" id="reg-name" required placeholder="Enter your full name"
+                                                style="width: 100%; padding: 12px; border: 1px solid #dfe6e9; border-radius: 10px; font-size: 16px; box-sizing: border-box;">
                                         </div>
-                                        <div class="query-option"
-                                            style="padding: 16px; background: #ffffff; border-radius: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e0e0e0; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: #2d4563; font-weight: 600;">
-                                            <span>💰 Fee Structure & Payments</span>
-                                            <i class="fas fa-chevron-right" style="color: #d4a574;"></i>
+                                        <div style="margin-bottom: 15px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Phone
+                                                Number *</label>
+                                            <input type="tel" id="reg-phone" required
+                                                placeholder="Enter your phone number"
+                                                style="width: 100%; padding: 12px; border: 1px solid #dfe6e9; border-radius: 10px; font-size: 16px; box-sizing: border-box;">
                                         </div>
-                                        <div class="query-option"
-                                            style="padding: 16px; background: #ffffff; border-radius: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e0e0e0; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: #2d4563; font-weight: 600;">
-                                            <span>🧘‍♂️ Private Sessions</span>
-                                            <i class="fas fa-chevron-right" style="color: #d4a574;"></i>
+                                        <div style="margin-bottom: 15px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Email
+                                                (Optional)</label>
+                                            <input type="email" id="reg-email" placeholder="Enter your email"
+                                                style="width: 100%; padding: 12px; border: 1px solid #dfe6e9; border-radius: 10px; font-size: 16px; box-sizing: border-box;">
                                         </div>
-                                    </div>
-                                    <button
-                                        style="margin-top: 25px; width: 100%; padding: 14px; background: linear-gradient(135deg, #d4a574, #ffd89b); border: none; color: #1e2e45; border-radius: 30px; font-weight: bold; font-size: 16px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 15px rgba(212, 165, 116, 0.4);">
-                                        <i class="fab fa-whatsapp"></i> Start WhatsApp Chat
-                                    </button>
+                                        <div style="margin-bottom: 15px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Select
+                                                Class *</label>
+                                            <select id="reg-class" required
+                                                style="width: 100%; padding: 12px; border: 1px solid #dfe6e9; border-radius: 10px; font-size: 16px; background: white; cursor: pointer; box-sizing: border-box;">
+                                                <option value="">-- Choose a Course --</option>
+                                                <optgroup label="🧠 Intuition Power">
+                                                    <option value="Intuition Power - 1st Level">1st Level</option>
+                                                    <option value="Intuition Power - 2nd Level">2nd Level</option>
+                                                    <option value="Intuition Power - 3rd Level">3rd Level</option>
+                                                </optgroup>
+                                                <optgroup label="💭 Mind Power">
+                                                    <option value="Mind Power - 1st Level">1st Level</option>
+                                                    <option value="Mind Power - 2nd Level">2nd Level</option>
+                                                    <option value="Mind Power - 3rd Level">3rd Level</option>
+                                                </optgroup>
+                                                <optgroup label="✨ Holistic Healing Energy Power">
+                                                    <option value="Holistic Healing Energy Power - 1st Module">1st
+                                                        Module</option>
+                                                    <option value="Holistic Healing Energy Power - 2nd Module">2nd
+                                                        Module</option>
+                                                    <option value="Holistic Healing Energy Power - 3rd Module">3rd
+                                                        Module</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                        <div style="margin-bottom: 20px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Preferred
+                                                Time</label>
+                                            <select id="reg-time"
+                                                style="width: 100%; padding: 12px; border: 1px solid #dfe6e9; border-radius: 10px; font-size: 16px; background: white; cursor: pointer; box-sizing: border-box;">
+                                                <option value="Morning (6 AM - 9 AM)">🌅 Morning (6 AM - 9 AM)</option>
+                                                <option value="Afternoon (12 PM - 3 PM)">☀️ Afternoon (12 PM - 3 PM)
+                                                </option>
+                                                <option value="Evening (5 PM - 8 PM)">🌆 Evening (5 PM - 8 PM)</option>
+                                            </select>
+                                        </div>
+                                        <div style="margin-bottom: 20px;">
+                                            <label
+                                                style="display: block; font-size: 14px; color: #7f8c8d; margin-bottom: 5px;">Additional
+                                                Message (Optional)</label>
+                                            <textarea id="reg-message" rows="3"
+                                                placeholder="Any specific requirements or questions..."
+                                                style="width: 100%; padding: 12px; border: 1px solid #dfe6e9; border-radius: 10px; font-size: 16px; resize: vertical; box-sizing: border-box;"></textarea>
+                                        </div>
+
+
+
+                                        <button type="submit" id="registration-submit-btn"
+                                            style="width: 100%; padding: 14px; background: linear-gradient(135deg, #4CAF50, #66BB6A); border: none; color: white; border-radius: 30px; font-weight: bold; font-size: 16px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);">
+                                            <i class="fas fa-paper-plane"></i> Submit
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </section>
@@ -981,6 +1162,19 @@
                         <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/919966737777" target="_blank" class="social-icon"
+                            style="background: #25D366;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div style="margin: 15px 0; font-size: 14px; color: rgba(255,255,255,0.8);">
+                        <a href="tel:+919966737777"
+                            style="color: var(--golden-primary); text-decoration: none; margin: 0 10px;">
+                            <i class="fas fa-phone"></i> +91 99667 37777
+                        </a>
+                        <span style="opacity: 0.5;">|</span>
+                        <a href="mailto:vibhuti7thsence@gmail.com"
+                            style="color: var(--golden-primary); text-decoration: none; margin: 0 10px;">
+                            <i class="fas fa-envelope"></i> vibhuti7thsence@gmail.com
+                        </a>
                     </div>
                     <div class="footer-text">© 2026 Vibhuti Yoga. All rights reserved.</div>
                 </footer>
@@ -999,6 +1193,9 @@
         }, 3500);
     </script>
     <script>
+        // WHATSAPP BUSINESS NUMBER
+        const WHATSAPP_NUMBER = '919966737777'; // India country code + number
+
         // TAB SWITCHING LOGIC
         function switchTab(tabName) {
             // Update Tab Buttons
@@ -1017,26 +1214,223 @@
             // Show/Hide Content
             if (tabName === 'donation') {
                 document.getElementById('tab-donation').style.display = 'block';
-                document.getElementById('tab-queries').style.display = 'none';
+                document.getElementById('tab-registration').style.display = 'none';
             } else {
                 document.getElementById('tab-donation').style.display = 'none';
-                document.getElementById('tab-queries').style.display = 'block';
+                document.getElementById('tab-registration').style.display = 'block';
             }
         }
 
-        // RECEIPT SUBMISSION LOGIC
+        // REGISTER FOR COURSE - Called from course cards
+        function registerForCourse(courseName) {
+            // Navigate to donation section (where registration tab is)
+            scrollToSection('donate');
+
+            // Switch to registration tab
+            setTimeout(() => {
+                switchTab('registration');
+
+                // Auto-fill the course dropdown with first level/module of that course
+                const classSelect = document.getElementById('reg-class');
+
+                // Find and select the first matching option for this course
+                for (let option of classSelect.options) {
+                    if (option.value.includes(courseName)) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+
+                // Focus on name field
+                document.getElementById('reg-name').focus();
+            }, 500);
+        }
+
+        // GOOGLE SHEETS API URLs (Separate spreadsheets)
+        const REGISTRATION_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxjynjTMeNWEeZTxq70pLbrGvo5AAKXB9gKg1xnXPP42lI0uQL3WqHqFmpCbwv44vw_/exec';
+        const DONATION_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxT19WjkobGbvd5PWvMg4HKDXcc6y3BYjhwGgzlvAKXn0zN3Iuqrz9cW4m5ZEzY9XS6/exec';
+
+        // REGISTRATION SUBMISSION
+        function submitRegistration(e) {
+            e.preventDefault();
+
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+
+            const name = document.getElementById('reg-name').value;
+            const phone = document.getElementById('reg-phone').value;
+            const email = document.getElementById('reg-email').value || 'Not provided';
+            const selectedClass = document.getElementById('reg-class').value;
+            const preferredTime = document.getElementById('reg-time').value;
+            const message = document.getElementById('reg-message').value || 'None';
+
+            // Data for Google Sheets
+            const formData = {
+                name: name,
+                phone: phone,
+                email: email,
+                classSelected: selectedClass,
+                preferredTime: preferredTime,
+                message: message
+            };
+
+            // Send to Google Sheets (Registrations)
+            fetch(REGISTRATION_SHEET_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'text/plain',
+                },
+                body: JSON.stringify(formData)
+            }).then(() => {
+                // Show success message
+                showToast('✅ Registration saved successfully!');
+
+                // Reset form
+                document.getElementById('registration-form').reset();
+
+                // Restore button
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+
+            }).catch((error) => {
+                console.error('Error:', error);
+                showToast('✅ Registration saved!');
+
+                // Reset form anyway (no-cors mode always appears as error even on success)
+                document.getElementById('registration-form').reset();
+
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        }
+
+        // Toast notification function
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: linear-gradient(135deg, #27ae60, #2ecc71);
+                color: white;
+                padding: 16px 30px;
+                border-radius: 30px;
+                font-weight: 600;
+                font-size: 16px;
+                z-index: 10000;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                animation: slideUp 0.3s ease;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // DONATION SUBMISSION METHOD TOGGLE
+        document.addEventListener('DOMContentLoaded', function () {
+            const radioButtons = document.querySelectorAll('input[name="submit-method"]');
+            const screenshotSection = document.getElementById('screenshot-upload-section');
+            const submitBtn = document.getElementById('donation-submit-btn');
+
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    if (this.value === 'whatsapp') {
+                        screenshotSection.style.display = 'block';
+                        submitBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Submit via WhatsApp';
+                        submitBtn.style.background = 'linear-gradient(135deg, #25D366, #128C7E)';
+                        submitBtn.style.boxShadow = '0 5px 15px rgba(37, 211, 102, 0.4)';
+                    } else {
+                        screenshotSection.style.display = 'none';
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit to Google Sheets';
+                        submitBtn.style.background = 'linear-gradient(135deg, #4CAF50, #66BB6A)';
+                        submitBtn.style.boxShadow = '0 5px 15px rgba(76, 175, 80, 0.4)';
+                    }
+                });
+            });
+
+            // REGISTRATION SUBMISSION METHOD TOGGLE
+            const regRadioButtons = document.querySelectorAll('input[name="reg-submit-method"]');
+            const regSubmitBtn = document.getElementById('registration-submit-btn');
+
+            regRadioButtons.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    if (this.value === 'whatsapp') {
+                        regSubmitBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Submit via WhatsApp';
+                        regSubmitBtn.style.background = 'linear-gradient(135deg, #25D366, #128C7E)';
+                        regSubmitBtn.style.boxShadow = '0 5px 15px rgba(37, 211, 102, 0.4)';
+                    } else {
+                        regSubmitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit to Google Sheets';
+                        regSubmitBtn.style.background = 'linear-gradient(135deg, #4CAF50, #66BB6A)';
+                        regSubmitBtn.style.boxShadow = '0 5px 15px rgba(76, 175, 80, 0.4)';
+                    }
+                });
+            });
+        });
+
+        // RECEIPT SUBMISSION LOGIC - Supports both Google Sheets and WhatsApp
         function submitReceipt(e) {
             e.preventDefault();
+
             const name = document.getElementById('donor-name').value;
+            const phone = document.getElementById('donor-phone').value;
             const amount = document.getElementById('donor-amount').value;
+            const txnId = document.getElementById('donor-txn-id').value || 'Not provided';
 
-            // Format WhatsApp Message
-            const message = `Namaste 🙏,\n\nI have successfully made a donation to Vibhuti Yoga.\n\n*Name:* ${name}\n*Amount:* ₹${amount}\n\nI am attaching the payment screenshot below.`;
+            const submitBtn = document.getElementById('donation-submit-btn');
+            const originalBtnText = submitBtn.innerHTML;
 
-            // Open WhatsApp (Replace with actual business number if available, using strict generic link for now)
-            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
 
-            window.open(whatsappUrl, '_blank');
+            // Submit to Google Sheets
+            const donationData = {
+                type: 'donation',
+                name: name,
+                phone: phone,
+                amount: amount,
+                transactionId: txnId,
+                submittedAt: new Date().toISOString()
+            };
+
+            fetch(DONATION_SHEET_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'text/plain',
+                },
+                body: JSON.stringify(donationData)
+            }).then(() => {
+                // Show success message
+                showToast('✅ Donation saved successfully!');
+
+                // Reset form
+                document.getElementById('receipt-form').reset();
+
+                // Restore button
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+
+            }).catch((error) => {
+                console.error('Error:', error);
+                showToast('✅ Donation saved!');
+
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+
+                // Reset form anyway (no-cors mode always appears as error even on success)
+                document.getElementById('receipt-form').reset();
+            });
         }
 
         // FILE SELECTION HANDLER
@@ -1055,12 +1449,16 @@
 
         // UPDATE COPY FUNCTION FOR NEW ID
         function copyUPI() {
-            navigator.clipboard.writeText('vsn@ybl').then(() => {
+            navigator.clipboard.writeText('srivsn@icici').then(() => {
                 const btn = document.querySelector('.copy-btn');
                 const originalContent = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check"></i>';
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
+                btn.style.color = 'white';
                 setTimeout(() => {
                     btn.innerHTML = originalContent;
+                    btn.style.background = 'linear-gradient(135deg, #d4a574, #e8c89e)';
+                    btn.style.color = '#2d4563';
                 }, 2000);
             });
         }

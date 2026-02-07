@@ -119,16 +119,19 @@ body {
     width: 100%;
     height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding: 30px 20px;
+    padding: 110px 20px 30px 20px;
+    /* Top padding for fixed header */
 }
 
 /* === GLASS CARD - PREMIUM READABLE DESIGN === */
 .glass-card {
     width: 100%;
     max-width: 1200px;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 140px);
+    /* Account for fixed header */
+    margin-top: 0;
     /* Deep cosmic blue tint for MUCH better text readability */
     background: linear-gradient(135deg,
             rgba(30, 46, 69, 0.75) 0%,
@@ -136,9 +139,12 @@ body {
             rgba(58, 81, 113, 0.65) 100%);
     backdrop-filter: blur(30px) saturate(150%);
     -webkit-backdrop-filter: blur(30px) saturate(150%);
-    border-radius: 28px;
+    border-radius: 0 0 28px 28px;
+    /* Only bottom corners rounded */
     /* Softer golden glow - not overwhelming */
     border: 1px solid rgba(255, 216, 155, 0.25);
+    border-top: none;
+    /* No top border - connects with header */
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.5),
         0 0 120px rgba(255, 216, 155, 0.08),
@@ -148,20 +154,28 @@ body {
     overflow: hidden;
 }
 
-/* === STICKY HEADER === */
+/* === STICKY HEADER - FIXED AT VIEWPORT TOP === */
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 28px 48px;
     /* EXTRA PADDING */
-    background: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg,
+            rgba(30, 46, 69, 0.95) 0%,
+            rgba(45, 69, 99, 0.92) 100%);
     border-bottom: 2px solid rgba(255, 255, 255, 0.20);
-    backdrop-filter: blur(15px);
-    flex-shrink: 0;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 28px 28px 0 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .logo-section {
@@ -572,6 +586,35 @@ body {
     font-size: 16px;
     font-weight: 600;
     color: var(--golden-primary);
+    margin-bottom: 16px;
+}
+
+/* Register Button on Class Cards */
+.register-class-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--golden-deep), var(--golden-primary));
+    border: none;
+    border-radius: 20px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--cosmic-navy);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+    margin-top: 10px;
+}
+
+.register-class-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(212, 165, 116, 0.6);
+}
+
+.register-class-btn i {
+    font-size: 14px;
 }
 
 /* === BENEFITS GRID === */
